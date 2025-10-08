@@ -1,0 +1,5 @@
+{
+  "loader": "adaptiveores:adaptive_ore",
+  "ore_type": "redstone",
+  "overlay": "adaptiveores:block/overlay/redstone_ore_overlay"
+}

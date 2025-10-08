@@ -1,0 +1,5 @@
+{
+  "loader": "adaptiveores:adaptive_ore",
+  "ore_type": "iron",
+  "overlay": "adaptiveores:block/overlay/iron_ore_overlay"
+}

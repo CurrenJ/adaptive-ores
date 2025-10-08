@@ -1,0 +1,12 @@
+{
+  "values": [
+    "adaptiveores:adaptive_coal_ore",
+    "adaptiveores:adaptive_iron_ore",
+    "adaptiveores:adaptive_copper_ore",
+    "adaptiveores:adaptive_gold_ore",
+    "adaptiveores:adaptive_redstone_ore",
+    "adaptiveores:adaptive_lapis_ore",
+    "adaptiveores:adaptive_diamond_ore",
+    "adaptiveores:adaptive_emerald_ore"
+  ]
+}

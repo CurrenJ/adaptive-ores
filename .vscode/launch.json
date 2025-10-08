@@ -1,0 +1,93 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - adaptiveores",
+        "order": 0
+      },
+      "projectName": "adaptiveores",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dadaptiveores%%D:\\GitHub\\copycats2\\adaptiveores\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Data",
+      "presentation": {
+        "group": "Mod Development - adaptiveores",
+        "order": 1
+      },
+      "projectName": "adaptiveores",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\dataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003dadaptiveores%%D:\\GitHub\\copycats2\\adaptiveores\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "GameTestServer",
+      "presentation": {
+        "group": "Mod Development - adaptiveores",
+        "order": 2
+      },
+      "projectName": "adaptiveores",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\gameTestServerRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\gameTestServerRunVmArgs.txt",
+        "-Dfml.modFolders\u003dadaptiveores%%D:\\GitHub\\copycats2\\adaptiveores\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - adaptiveores",
+        "order": 3
+      },
+      "projectName": "adaptiveores",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@D:\\GitHub\\copycats2\\adaptiveores\\build\\moddev\\serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dadaptiveores%%D:\\GitHub\\copycats2\\adaptiveores\\bin\\main"
+      ],
+      "cwd": "${workspaceFolder}\\run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}

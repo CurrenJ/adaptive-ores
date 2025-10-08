@@ -1,0 +1,5 @@
+{
+  "loader": "adaptiveores:adaptive_ore",
+  "ore_type": "emerald",
+  "overlay": "adaptiveores:block/overlay/emerald_ore_overlay"
+}

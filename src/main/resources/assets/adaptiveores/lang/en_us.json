@@ -1,0 +1,11 @@
+{
+  "block.adaptiveores.adaptive_coal_ore": "Adaptive Coal Ore",
+  "block.adaptiveores.adaptive_iron_ore": "Adaptive Iron Ore", 
+  "block.adaptiveores.adaptive_copper_ore": "Adaptive Copper Ore",
+  "block.adaptiveores.adaptive_gold_ore": "Adaptive Gold Ore",
+  "block.adaptiveores.adaptive_redstone_ore": "Adaptive Redstone Ore",
+  "block.adaptiveores.adaptive_lapis_ore": "Adaptive Lapis Ore", 
+  "block.adaptiveores.adaptive_diamond_ore": "Adaptive Diamond Ore",
+  "block.adaptiveores.adaptive_emerald_ore": "Adaptive Emerald Ore",
+  "itemGroup.adaptiveores.adaptive_ores": "Adaptive Ores"
+}

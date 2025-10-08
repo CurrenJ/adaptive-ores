@@ -1,0 +1,5 @@
+{
+  "loader": "adaptiveores:adaptive_ore",
+  "ore_type": "coal",
+  "overlay": "adaptiveores:block/overlay/coal_ore_overlay"
+}

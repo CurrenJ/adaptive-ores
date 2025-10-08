@@ -1,0 +1,5 @@
+{
+  "loader": "adaptiveores:adaptive_ore",
+  "ore_type": "lapis",
+  "overlay": "adaptiveores:block/overlay/lapis_ore_overlay"
+}
