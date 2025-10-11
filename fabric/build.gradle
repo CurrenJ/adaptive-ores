@@ -37,8 +37,19 @@ dependencies {
 processResources {
     inputs.property 'version', project.version
 
+    from project(":common").sourceSets.main.resources
+
     filesMatching('fabric.mod.json') {
-        expand version: inputs.properties.version
+        expand([
+            'version': project.version,
+            'mod_id': rootProject.mod_id,
+            'mod_name': rootProject.mod_name,
+            'mod_description': rootProject.mod_description,
+            'mod_authors': rootProject.mod_authors,
+            'mod_license': rootProject.mod_license,
+            'mod_icon': rootProject.mod_icon,
+            'mod_fabric_minecraft_version': "~${rootProject.minecraft_version}"
+        ])
     }
 }
 

@@ -1,29 +1,29 @@
 modLoader = "javafml"
 loaderVersion = "[4,)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "${mod_license}"
 
 [[mods]]
-modId = "adaptiveores"
+modId = "${mod_id}"
 version = "${version}"
-displayName = "Adaptive Ores"
-authors = "Me!"
+displayName = "${mod_name}"
+authors = "${mod_authors}"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+${mod_description}
 '''
-#logoFile = ""
+logoFile = "${mod_icon}"
 
 [[dependencies.adaptiveores]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.1,)"
+versionRange = "${mod_neoforge_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.adaptiveores]]
 modId = "minecraft"
 type = "required"
-versionRange = "[1.21.1,)"
+versionRange = "${mod_minecraft_version_range}"
 ordering = "NONE"
 side = "BOTH"
 
@@ -32,4 +32,3 @@ config = "adaptiveores-common.mixins.json"
 
 [[mixins]]
 config = "adaptiveores-neoforge.mixins.json"
-
