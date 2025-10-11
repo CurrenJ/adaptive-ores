@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "adaptiveores:block/adaptive_redstone_ore"
+    }
+  }
+}
