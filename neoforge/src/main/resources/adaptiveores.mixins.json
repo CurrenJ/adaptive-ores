@@ -5,7 +5,6 @@
   "minVersion": "0.8",
   "refmap": "adaptiveores.refmap.json",
   "mixins": [
-    "AdaptiveOreFeatureMixin"
   ],
   "injectors": {
     "defaultRequire": 1
