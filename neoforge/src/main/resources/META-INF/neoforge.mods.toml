@@ -28,4 +28,8 @@ ordering = "NONE"
 side = "BOTH"
 
 [[mixins]]
-config = "adaptiveores.mixins.json"
+config = "adaptiveores-common.mixins.json"
+
+[[mixins]]
+config = "adaptiveores-neoforge.mixins.json"
+

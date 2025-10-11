@@ -20,13 +20,10 @@
     ],
     "client": [
       "grill24.adaptiveores.fabric.client.AdaptiveOresFabricClient"
-    ],
-    "fabric-datagen": [
-      "grill24.adaptiveores.fabric.datagen.FabricDataGenerators"
     ]
   },
   "mixins": [
-    "adaptiveores.mixins.json"
+    "adaptiveores-common.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.17.2",
