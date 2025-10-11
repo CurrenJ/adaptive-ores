@@ -70,6 +70,10 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
         {
             sample.setWithOffset(origin, direction);
             BlockState s = level.getBlockState(sample);
+            if (level.getBlockEntity(sample) instanceof AdaptiveOreBlockEntity adaptiveOreBlockEntity)
+            {
+                s = adaptiveOreBlockEntity.getBackdropMaterial();
+            }
             // Simple check: only count non-air stone-like blocks
             if (!s.isAir() && AdaptiveOreBlock.isValidBackdropBlock(s)) {
                 counts.put(s, counts.getOrDefault(s, 0) + 1);

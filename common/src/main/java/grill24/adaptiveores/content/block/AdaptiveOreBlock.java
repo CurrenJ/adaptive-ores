@@ -65,10 +65,9 @@ public class AdaptiveOreBlock extends Block implements EntityBlock {
         // Initialize backdrop on first load (server-side only)
         if (level != null && !level.isClientSide()) {
             // Detect a dominant backdrop and apply it
-            BlockState detected = detectDominantBackdrop(level, pos);
             if (level.getBlockEntity(pos) instanceof AdaptiveOreBlockEntity adaptive)
             {
-                adaptive.setBackdropMaterial(detected);
+                adaptive.sampleAndSetBackdropMaterial();
             }
         }
     }
