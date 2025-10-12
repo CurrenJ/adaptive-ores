@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "adaptiveores:block/adaptive_copper_ore"
+  }
+}
