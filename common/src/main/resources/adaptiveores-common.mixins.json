@@ -3,6 +3,7 @@
   "package": "grill24.adaptiveores.mixin",
   "compatibilityLevel": "JAVA_21",
   "minVersion": "0.8",
+  "refmap": "adaptiveores-common.refmap.json",
   "client": [
   ],
   "mixins": [
