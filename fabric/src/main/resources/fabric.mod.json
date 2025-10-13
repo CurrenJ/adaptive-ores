@@ -23,7 +23,7 @@
     ]
   },
   "mixins": [
-    "adaptiveores-common.mixins.json"
+    "adaptiveores.mixins.json"
   ],
   "accessWidener": "adaptiveores.accesswidener",
   "depends": {

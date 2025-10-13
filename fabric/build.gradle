@@ -39,7 +39,7 @@ processResources {
 
     from project(":common").sourceSets.main.resources
     from(project(":common").buildDir) {
-        include "resources/main/adaptiveores-common.refmap.json"
+        include "resources/main/adaptiveores.refmap.json"
     }
 
     filesMatching('fabric.mod.json') {
