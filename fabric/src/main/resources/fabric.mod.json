@@ -25,6 +25,7 @@
   "mixins": [
     "adaptiveores-common.mixins.json"
   ],
+  "accessWidener": "adaptiveores.accesswidener",
   "depends": {
     "fabricloader": ">=0.17.2",
     "minecraft": "${mod_fabric_minecraft_version}",

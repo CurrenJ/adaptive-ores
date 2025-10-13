@@ -60,15 +60,24 @@ public class AdaptiveOreBlock extends Block implements EntityBlock {
         super.onPlace(state, level, pos, oldState, isMoving);
         if (level != null && !level.isClientSide()) {
             AdaptiveOres.LOGGER.info("AdaptiveOreBlock.onPlace: placed adaptive ore {} at {} (old={})", this, pos, oldState.getBlock());
+            AdaptiveOres.LOGGER.info("CURREN");
         }
 
-        // Initialize backdrop on first load (server-side only)
+        // Schedule backdrop initialization to happen after placement
         if (level != null && !level.isClientSide()) {
-            // Detect a dominant backdrop and apply it
-            if (level.getBlockEntity(pos) instanceof AdaptiveOreBlockEntity adaptive)
-            {
-                adaptive.sampleAndSetBackdropMaterial();
-            }
+            level.scheduleTick(pos, this, 2);
+        }
+    }
+
+    @Override
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        // Detect a dominant backdrop and apply it
+        System.out.println("AdaptiveOreBlock.tick: sampling backdrop for adaptive ore " + this + " at " + pos);
+        AdaptiveOres.LOGGER.info("AdaptiveOreBlock.tick: sampling backdrop for adaptive ore {} at {}", this, pos);
+        BlockEntity be = level.getBlockEntity(pos);
+        if (be instanceof AdaptiveOreBlockEntity adaptive) {
+            AdaptiveOres.LOGGER.info("AdaptiveOreBlock.tick: found block entity, sampling backdrop");
+            adaptive.sampleAndSetBackdropMaterial();
         }
     }
 
@@ -189,56 +198,5 @@ public class AdaptiveOreBlock extends Block implements EntityBlock {
     @Nullable
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new AdaptiveOreBlockEntity(pos, state);
-    }
-
-    @Override
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-        // This tick is scheduled by worldgen mixin after placing adaptive ore into chunk sections
-        try {
-            if (!level.isClientSide()) {
-                BlockState current = level.getBlockState(pos);
-                AdaptiveOreBlockEntity be = null;
-                if (level.getBlockEntity(pos) instanceof AdaptiveOreBlockEntity adaptive) {
-                    adaptive.sampleAndSetBackdropMaterial();
-                    adaptive.notifyUpdate();
-                }
-            }
-        } catch (Exception e) {
-            AdaptiveOres.LOGGER.error("Failed to tick adaptive ore at {}", pos, e);
-        }
-    }
-
-    public BlockState getBackdropMaterial(Level level, BlockPos pos) {
-        IAdaptiveOreBlockEntity be = getAdaptiveOreBlockEntity(level, pos);
-        return be != null ? be.getBackdropMaterial() : net.minecraft.world.level.block.Blocks.STONE.defaultBlockState();
-    }
-
-    /**
-     * Detects the dominant stone-type block around the given position by sampling neighbors.
-     * Returns STONE as a fallback if no valid candidates are found.
-     * Mirrors the logic used by the block entity on load so other systems (mixins,
-     * worldgen, etc.) can reuse the exact same heuristic.
-     */
-    public static BlockState detectDominantBackdrop(BlockGetter level, BlockPos origin) {
-        if (level == null || origin == null) {
-            return net.minecraft.world.level.block.Blocks.STONE.defaultBlockState();
-        }
-
-        java.util.Map<BlockState, Integer> counts = new java.util.HashMap<>();
-        BlockPos.MutableBlockPos sample = new BlockPos.MutableBlockPos();
-
-        for (Direction direction : Direction.values()) {
-            sample.setWithOffset(origin, direction);
-            BlockState s = level.getBlockState(sample);
-            if (!s.isAir() && isValidBackdropBlock(s)) {
-                counts.put(s, counts.getOrDefault(s, 0) + 1);
-            }
-        }
-
-        if (counts.isEmpty()) {
-            return net.minecraft.world.level.block.Blocks.STONE.defaultBlockState();
-        }
-
-        return counts.entrySet().stream().max(java.util.Map.Entry.comparingByValue()).map(java.util.Map.Entry::getKey).orElse(net.minecraft.world.level.block.Blocks.STONE.defaultBlockState());
     }
 }

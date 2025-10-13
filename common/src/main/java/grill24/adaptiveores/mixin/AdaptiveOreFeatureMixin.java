@@ -4,6 +4,7 @@ import com.mojang.serialization.Codec;
 import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
 import grill24.adaptiveores.AdaptiveOres;
 import grill24.adaptiveores.content.block.AdaptiveOreBlock;
+import grill24.adaptiveores.foundation.blockentity.AdaptiveOreBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
 
@@ -74,7 +75,7 @@ public abstract class AdaptiveOreFeatureMixin extends Feature<OreConfiguration> 
         // vanilla ore variant instead of replacing it with our adaptive ore (identical visuals,
         // unnecessary overhead).
         if (adaptiveOreBlock != null && adaptiveFromPlacing && replacing != null) {
-            BlockState detectedBackdrop = AdaptiveOreBlock.detectDominantBackdrop(level, blockpos$mutableblockpos);
+            BlockState detectedBackdrop = AdaptiveOreBlockEntity.detectDominantBackdrop(level, blockpos$mutableblockpos);
             if (detectedBackdrop.is(Blocks.STONE) || detectedBackdrop.is(Blocks.DEEPSLATE)) {
                 return; // Keep the vanilla ore instead
             }

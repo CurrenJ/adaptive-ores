@@ -11,6 +11,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.network.protocol.game.ClientGamePacketListener;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -19,6 +20,7 @@ import net.minecraft.core.BlockPos.MutableBlockPos;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Block entity for adaptive ore blocks.
@@ -29,6 +31,7 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
 
     protected BlockState backdropMaterial;
     private boolean hasCustomBackdrop = false;
+    private boolean backdropSampled = false;
 
     public AdaptiveOreBlockEntity(BlockPos pos, BlockState blockState) {
         super(AdaptiveOreBlockEntities.ADAPTIVE_ORE_BLOCK_ENTITY.value(), pos, blockState);
@@ -50,6 +53,9 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
     @Override
     public void setLevel(Level level) {
         super.setLevel(level);
+        if (!backdropSampled && level != null && !level.isClientSide) {
+            level.scheduleTick(getBlockPos(), getBlockState().getBlock(), 1);
+        }
     }
 
     public void sampleAndSetBackdropMaterial() {
@@ -57,12 +63,15 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
             return; // Only sample on server side
         }
 
+        AdaptiveOres.LOGGER.info("AdaptiveOreBlockEntity.sampleAndSetBackdropMaterial: sampling backdrop for adaptive ore at {}", getBlockPos());
+
         BlockPos pos = getBlockPos();
         BlockState detected = detectDominantBackdrop(level, pos);
         setBackdropMaterial(detected);
+        backdropSampled = true;
     }
 
-    private BlockState detectDominantBackdrop(Level level, BlockPos origin) {
+    public static BlockState detectDominantBackdrop(BlockGetter level, BlockPos origin) {
         Map<BlockState, Integer> counts = new HashMap<>();
         MutableBlockPos sample = new MutableBlockPos();
 
@@ -70,9 +79,10 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
         {
             sample.setWithOffset(origin, direction);
             BlockState s = level.getBlockState(sample);
-            if (level.getBlockEntity(sample) instanceof AdaptiveOreBlockEntity adaptiveOreBlockEntity)
+            Optional<AdaptiveOreBlockEntity> adaptiveOreBlockEntity = (Optional<AdaptiveOreBlockEntity>) level.getBlockEntity(sample, AdaptiveOreBlockEntities.ADAPTIVE_ORE_BLOCK_ENTITY.value());
+            if (adaptiveOreBlockEntity.isPresent())
             {
-                s = adaptiveOreBlockEntity.getBackdropMaterial();
+                s = adaptiveOreBlockEntity.get().getBackdropMaterial();
             }
             // Simple check: only count non-air stone-like blocks
             if (!s.isAir() && AdaptiveOreBlock.isValidBackdropBlock(s)) {
@@ -81,11 +91,15 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
         }
 
         if (counts.isEmpty()) {
-            AdaptiveOres.LOGGER.debug("detectDominantBackdrop: no candidate blocks found around {} - defaulting to STONE", origin);
+            AdaptiveOres.LOGGER.info("detectDominantBackdrop: no candidate blocks found around {} - defaulting to STONE", origin);
             return Blocks.STONE.defaultBlockState();
         }
 
         BlockState chosen = counts.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(Blocks.STONE.defaultBlockState());
+        // Dump the counts for debugging
+        counts.forEach((state, count) -> {
+            AdaptiveOres.LOGGER.info("detectDominantBackdrop: candidate block {} count {}", state, count);
+        });
         return chosen;
     }
 
@@ -122,6 +136,7 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         IAdaptiveOreBlockEntity.read(this, tag, registries, false);
+        backdropSampled = true; // Mark as sampled since it was loaded from save
     }
 
     @Override

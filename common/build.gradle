@@ -3,6 +3,7 @@ architectury {
 }
 
 loom {
+    accessWidenerPath = file("src/main/resources/adaptiveores.accesswidener")
     mixin {
         defaultRefmapName = "adaptiveores-common.refmap.json"
     }
