@@ -1,6 +1,6 @@
 package grill24.adaptiveores.data;
 
-import grill24.adaptiveores.TagAdder;
+import grill24.adaptiveores.platform.datagen.TagAdder;
 import grill24.adaptiveores.foundation.AdaptiveOreConstants;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;

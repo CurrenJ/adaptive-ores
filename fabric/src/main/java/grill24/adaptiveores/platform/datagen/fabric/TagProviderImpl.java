@@ -1,4 +1,4 @@
-package grill24.adaptiveores.fabric;
+package grill24.adaptiveores.platform.datagen.fabric;
 
 import grill24.adaptiveores.data.CommonBlockTags;
 import grill24.adaptiveores.data.CommonItemTags;

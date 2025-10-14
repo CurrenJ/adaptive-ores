@@ -1,6 +1,6 @@
-package grill24.adaptiveores.fabric.platform;
+package grill24.adaptiveores.platform.datagen.fabric;
 
-import grill24.adaptiveores.platform.IDataGeneratorHelper;
+import grill24.adaptiveores.platform.datagen.IDataGeneratorHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.data.DataProvider;
 

@@ -1,7 +1,6 @@
-package grill24.adaptiveores.neoforge;
+package grill24.adaptiveores.platform.datagen.neoforge;
 
-import grill24.adaptiveores.neoforge.platform.NeoForgeDataGeneratorHelper;
-import grill24.adaptiveores.platform.IDataGeneratorHelper;
+import grill24.adaptiveores.platform.datagen.IDataGeneratorHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 public class SidedDataGeneratorImpl {

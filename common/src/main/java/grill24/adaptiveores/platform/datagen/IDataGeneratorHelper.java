@@ -1,4 +1,4 @@
-package grill24.adaptiveores.platform;
+package grill24.adaptiveores.platform.datagen;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataProvider;

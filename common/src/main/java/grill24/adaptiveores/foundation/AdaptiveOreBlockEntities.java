@@ -2,7 +2,7 @@ package grill24.adaptiveores.foundation;
 
 import grill24.adaptiveores.AdaptiveOres;
 import grill24.adaptiveores.foundation.blockentity.AdaptiveOreBlockEntity;
-import grill24.adaptiveores.platform.IRegistryHelper;
+import grill24.adaptiveores.platform.registry.IRegistryHelper;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.core.Holder;

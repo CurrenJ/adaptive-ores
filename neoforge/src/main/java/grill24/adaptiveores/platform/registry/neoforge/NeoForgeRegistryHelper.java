@@ -1,8 +1,8 @@
-package grill24.adaptiveores.neoforge.platform;
+package grill24.adaptiveores.platform.registry.neoforge;
 
 import grill24.adaptiveores.data.AdaptiveOreSettings;
 import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
-import grill24.adaptiveores.platform.IRegistryHelper;
+import grill24.adaptiveores.platform.registry.IRegistryHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;

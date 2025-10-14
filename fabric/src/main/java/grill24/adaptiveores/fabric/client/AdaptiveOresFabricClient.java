@@ -2,7 +2,6 @@ package grill24.adaptiveores.fabric.client;
 
 import grill24.adaptiveores.AdaptiveOres;
 import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
-import grill24.adaptiveores.platform.BlockRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;

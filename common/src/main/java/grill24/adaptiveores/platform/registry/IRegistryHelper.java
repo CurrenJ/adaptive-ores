@@ -1,4 +1,4 @@
-package grill24.adaptiveores.platform;
+package grill24.adaptiveores.platform.registry;
 
 import grill24.adaptiveores.data.AdaptiveOreSettings;
 import net.minecraft.core.Holder;

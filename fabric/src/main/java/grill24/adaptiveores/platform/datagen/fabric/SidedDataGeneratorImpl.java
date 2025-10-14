@@ -1,7 +1,6 @@
-package grill24.adaptiveores.fabric;
+package grill24.adaptiveores.platform.datagen.fabric;
 
-import grill24.adaptiveores.fabric.platform.FabricDataGeneratorHelper;
-import grill24.adaptiveores.platform.IDataGeneratorHelper;
+import grill24.adaptiveores.platform.datagen.IDataGeneratorHelper;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 
 public class SidedDataGeneratorImpl {

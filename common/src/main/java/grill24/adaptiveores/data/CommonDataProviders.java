@@ -1,7 +1,7 @@
 package grill24.adaptiveores.data;
 
-import grill24.adaptiveores.TagProvider;
-import grill24.adaptiveores.platform.IDataGeneratorHelper;
+import grill24.adaptiveores.platform.datagen.TagProvider;
+import grill24.adaptiveores.platform.datagen.IDataGeneratorHelper;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

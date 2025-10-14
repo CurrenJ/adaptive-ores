@@ -1,6 +1,7 @@
 package grill24.adaptiveores.fabric;
 
 import grill24.adaptiveores.AdaptiveOres;
+import grill24.adaptiveores.platform.registry.fabric.SidedRegistryHelperImpl;
 import net.fabricmc.api.ModInitializer;
 
 public final class AdaptiveOresFabricMod implements ModInitializer {

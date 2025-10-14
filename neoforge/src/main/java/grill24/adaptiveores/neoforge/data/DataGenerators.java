@@ -1,8 +1,8 @@
 package grill24.adaptiveores.neoforge.data;
 
 import grill24.adaptiveores.AdaptiveOres;
-import grill24.adaptiveores.SidedDataGenerator;
 import grill24.adaptiveores.data.CommonDataProviders;
+import grill24.adaptiveores.platform.datagen.SidedDataGenerator;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;

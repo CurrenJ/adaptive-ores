@@ -1,4 +1,4 @@
-// 1.21.1	2025-10-14T02:47:41.614082	Adaptive Ores/Model Definitions
+// 1.21.1	2025-10-14T03:14:16.839983	Adaptive Ores/Model Definitions
 b0f16de75e57f49c26f1b7ce956d6fab07c54b60 assets/adaptiveores/models/item/adaptive_iron_ore.json
 2ea6d40de3fc4a56a212c948d7bcd5dca807b309 assets/adaptiveores/blockstates/adaptive_iron_ore.json
 8e8ee06540711d9f267c4e0aa936e3b05d4c6bc6 assets/adaptiveores/blockstates/adaptive_diamond_ore.json
@@ -11,10 +11,10 @@ c6568a922ff6db0f39d07ddeb8867984f64abb46 assets/adaptiveores/blockstates/adaptiv
 eda3f93240113a58633066f478444ad20c26c48e assets/adaptiveores/models/item/adaptive_emerald_ore.json
 5eaf77d1374f14281a037ccbd75ffb7abe94c10c assets/adaptiveores/blockstates/adaptive_emerald_ore.json
 e7bcae00a48c914f5878e4483f45f2f5514202f9 assets/adaptiveores/blockstates/adaptive_coal_ore.json
-3fbcf4b09e55b8278776c9778cd92b38ee179021 assets/adaptiveores/models/block/adaptive_lapis_ore.json
 af221fd671bd4bb726e02b4659b07c6767d7aa2f assets/adaptiveores/models/block/adaptive_diamond_ore.json
-e3b2d17198f710cf57dfea85489cd9a5c1237541 assets/adaptiveores/models/block/adaptive_coal_ore.json
+3fbcf4b09e55b8278776c9778cd92b38ee179021 assets/adaptiveores/models/block/adaptive_lapis_ore.json
 20b13fa1b943ee5191e21d3f764f976436c74b5b assets/adaptiveores/models/block/adaptive_redstone_ore.json
+e3b2d17198f710cf57dfea85489cd9a5c1237541 assets/adaptiveores/models/block/adaptive_coal_ore.json
 4e28a91f4d2cecafd9c4fc35c48dd355da520e53 assets/adaptiveores/blockstates/adaptive_gold_ore.json
 8720c96186fe7e5b1465849e4604c7b70443696f assets/adaptiveores/models/item/adaptive_gold_ore.json
 6e7689a820d0c877470e874a1bd18655d18942c9 assets/adaptiveores/models/block/adaptive_emerald_ore.json

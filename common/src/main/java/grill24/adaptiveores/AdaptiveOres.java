@@ -4,7 +4,7 @@ import com.mojang.logging.LogUtils;
 import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
 import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
 import grill24.adaptiveores.foundation.AdaptiveOreBlockEntities;
-import grill24.adaptiveores.platform.IRegistryHelper;
+import grill24.adaptiveores.platform.registry.IRegistryHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;

@@ -1,4 +1,4 @@
-package grill24.adaptiveores;
+package grill24.adaptiveores.platform.datagen;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.HolderLookup;

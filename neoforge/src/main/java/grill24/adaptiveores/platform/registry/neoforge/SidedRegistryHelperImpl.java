@@ -1,8 +1,7 @@
-package grill24.adaptiveores.neoforge;
+package grill24.adaptiveores.platform.registry.neoforge;
 
 import grill24.adaptiveores.AdaptiveOres;
-import grill24.adaptiveores.neoforge.platform.NeoForgeRegistryHelper;
-import grill24.adaptiveores.platform.IRegistryHelper;
+import grill24.adaptiveores.platform.registry.IRegistryHelper;
 
 public class SidedRegistryHelperImpl {
     public static IRegistryHelper create() {

@@ -1,6 +1,6 @@
-package grill24.adaptiveores.neoforge.platform;
+package grill24.adaptiveores.platform.datagen.neoforge;
 
-import grill24.adaptiveores.platform.IDataGeneratorHelper;
+import grill24.adaptiveores.platform.datagen.IDataGeneratorHelper;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;

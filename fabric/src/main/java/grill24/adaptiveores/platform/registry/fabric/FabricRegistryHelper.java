@@ -1,8 +1,8 @@
-package grill24.adaptiveores.fabric.platform;
+package grill24.adaptiveores.platform.registry.fabric;
 
 import grill24.adaptiveores.data.AdaptiveOreSettings;
 import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
-import grill24.adaptiveores.platform.IRegistryHelper;
+import grill24.adaptiveores.platform.registry.IRegistryHelper;
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.Holder;

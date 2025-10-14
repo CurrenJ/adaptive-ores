@@ -1,7 +1,6 @@
-package grill24.adaptiveores;
+package grill24.adaptiveores.platform.registry;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
-import grill24.adaptiveores.platform.IRegistryHelper;
 
 public class SidedRegistryHelper {
     @ExpectPlatform

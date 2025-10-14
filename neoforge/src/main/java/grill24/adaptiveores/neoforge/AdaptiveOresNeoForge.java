@@ -1,7 +1,7 @@
 package grill24.adaptiveores.neoforge;
 
 import grill24.adaptiveores.AdaptiveOres;
-import grill24.adaptiveores.SidedRegistryHelper;
+import grill24.adaptiveores.platform.registry.SidedRegistryHelper;
 import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
 import grill24.adaptiveores.foundation.blockentity.IAdaptiveOreBlockEntity;
 import net.neoforged.neoforge.registries.RegistryBuilder;
@@ -22,8 +22,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.core.BlockPos;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import grill24.adaptiveores.neoforge.platform.NeoForgeRegistryHelper;
-import grill24.adaptiveores.platform.IRegistryHelper;
+import grill24.adaptiveores.platform.registry.neoforge.NeoForgeRegistryHelper;
+import grill24.adaptiveores.platform.registry.IRegistryHelper;
 import net.neoforged.neoforge.registries.NewRegistryEvent;
 
 @Mod(AdaptiveOres.MOD_ID)

@@ -1,6 +1,5 @@
 package grill24.adaptiveores.fabric.client.model;
 
-import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import grill24.adaptiveores.AdaptiveOres;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.core.Direction;

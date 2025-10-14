@@ -1,6 +1,5 @@
-package grill24.adaptiveores;
+package grill24.adaptiveores.platform.datagen;
 
-import net.minecraft.core.Holder;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.tags.TagKey;
 

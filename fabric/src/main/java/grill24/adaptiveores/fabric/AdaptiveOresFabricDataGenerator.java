@@ -1,6 +1,6 @@
 package grill24.adaptiveores.fabric;
 
-import grill24.adaptiveores.SidedDataGenerator;
+import grill24.adaptiveores.platform.datagen.SidedDataGenerator;
 import grill24.adaptiveores.data.CommonDataProviders;
 import grill24.adaptiveores.fabric.data.ModAdaptiveOreModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;

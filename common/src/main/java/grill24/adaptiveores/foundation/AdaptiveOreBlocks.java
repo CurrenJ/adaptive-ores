@@ -1,7 +1,7 @@
 package grill24.adaptiveores.foundation;
 
 import grill24.adaptiveores.content.block.AdaptiveOreBlock;
-import grill24.adaptiveores.platform.IRegistryHelper;
+import grill24.adaptiveores.platform.registry.IRegistryHelper;
 import net.minecraft.core.Holder;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

@@ -1,4 +1,4 @@
-package grill24.adaptiveores.neoforge;
+package grill24.adaptiveores.platform.datagen.neoforge;
 
 import grill24.adaptiveores.AdaptiveOres;
 import grill24.adaptiveores.data.CommonBlockTags;
@@ -12,7 +12,6 @@ import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
-import java.util.Arrays;
 import java.util.concurrent.CompletableFuture;
 
 public class TagProviderImpl {

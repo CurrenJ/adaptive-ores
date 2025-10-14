@@ -1,6 +1,6 @@
 package grill24.adaptiveores.data;
 
-import grill24.adaptiveores.platform.BlockRegistry;
+import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -12,6 +12,7 @@ import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootTable;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 import java.util.function.BiConsumer;
@@ -25,34 +26,43 @@ public class CommonBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
         // Coal
-        add(BlockRegistry.getAdaptiveCoalOre(registries).value(), block -> createOreDrop(block, Items.COAL));
+        add(AdaptiveOreBlocks.ADAPTIVE_COAL_ORE.value(), block -> createOreDrop(block, Items.COAL));
 
         // Iron
-        add(BlockRegistry.getAdaptiveIronOre(registries).value(), block -> createOreDrop(block, Items.RAW_IRON));
+        add(AdaptiveOreBlocks.ADAPTIVE_IRON_ORE.value(), block -> createOreDrop(block, Items.RAW_IRON));
 
         // Copper
-        add(BlockRegistry.getAdaptiveCopperOre(registries).value(), this::createCopperOreDrops);
+        add(AdaptiveOreBlocks.ADAPTIVE_COPPER_ORE.value(), this::createCopperOreDrops);
 
         // Gold
-        add(BlockRegistry.getAdaptiveGoldOre(registries).value(), block -> createOreDrop(block, Items.RAW_GOLD));
+        add(AdaptiveOreBlocks.ADAPTIVE_GOLD_ORE.value(), block -> createOreDrop(block, Items.RAW_GOLD));
 
         // Redstone
-        Block redstoneBlock = BlockRegistry.getAdaptiveRedstoneOre(registries).value();
+        Block redstoneBlock = AdaptiveOreBlocks.ADAPTIVE_REDSTONE_ORE.value();
         add(redstoneBlock, createRedstoneOreDrops(redstoneBlock));
 
-        Block lapisBlock = BlockRegistry.getAdaptiveLapisOre(registries).value();
+        Block lapisBlock = AdaptiveOreBlocks.ADAPTIVE_LAPIS_ORE.value();
         // Lapis (4-9 lapis, fortune applicable)
         add(lapisBlock, createLapisOreDrops(lapisBlock));
 
         // Diamond
-        add(BlockRegistry.getAdaptiveDiamondOre(registries).value(), block -> createOreDrop(block, Items.DIAMOND));
+        add(AdaptiveOreBlocks.ADAPTIVE_DIAMOND_ORE.value(), block -> createOreDrop(block, Items.DIAMOND));
 
         // Emerald
-        add(BlockRegistry.getAdaptiveEmeraldOre(registries).value(), block -> createOreDrop(block, Items.EMERALD));
+        add(AdaptiveOreBlocks.ADAPTIVE_EMERALD_ORE.value(), block -> createOreDrop(block, Items.EMERALD));
     }
 
     protected Iterable<Block> getKnownBlocks() {
-        return BlockRegistry.getAllAdaptiveOres(registries);
+        return List.of(
+            AdaptiveOreBlocks.ADAPTIVE_COAL_ORE.value(),
+            AdaptiveOreBlocks.ADAPTIVE_IRON_ORE.value(),
+            AdaptiveOreBlocks.ADAPTIVE_COPPER_ORE.value(),
+            AdaptiveOreBlocks.ADAPTIVE_GOLD_ORE.value(),
+            AdaptiveOreBlocks.ADAPTIVE_REDSTONE_ORE.value(),
+            AdaptiveOreBlocks.ADAPTIVE_LAPIS_ORE.value(),
+            AdaptiveOreBlocks.ADAPTIVE_DIAMOND_ORE.value(),
+            AdaptiveOreBlocks.ADAPTIVE_EMERALD_ORE.value()
+        );
     }
 
     @Override
