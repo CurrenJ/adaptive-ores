@@ -86,20 +86,20 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
             }
             // Simple check: only count non-air stone-like blocks
             if (!s.isAir() && AdaptiveOreBlock.isValidBackdropBlock(s)) {
-                counts.put(s, counts.getOrDefault(s, 0) + 1);
+                int weight = 1;
+                if (!s.is(Blocks.STONE) && !s.is(Blocks.DEEPSLATE))
+                {
+                    weight = 4; // Weight non-stone backdrops higher
+                }
+                counts.put(s, counts.getOrDefault(s, 0) + weight);
             }
         }
 
         if (counts.isEmpty()) {
-            AdaptiveOres.LOGGER.info("detectDominantBackdrop: no candidate blocks found around {} - defaulting to STONE", origin);
             return Blocks.STONE.defaultBlockState();
         }
 
         BlockState chosen = counts.entrySet().stream().max(Map.Entry.comparingByValue()).map(Map.Entry::getKey).orElse(Blocks.STONE.defaultBlockState());
-        // Dump the counts for debugging
-        counts.forEach((state, count) -> {
-            AdaptiveOres.LOGGER.info("detectDominantBackdrop: candidate block {} count {}", state, count);
-        });
         return chosen;
     }
 

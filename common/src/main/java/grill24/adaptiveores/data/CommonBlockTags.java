@@ -1,10 +1,9 @@
 package grill24.adaptiveores.data;
 
-import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
+import grill24.adaptiveores.TagAdder;
+import grill24.adaptiveores.foundation.AdaptiveOreConstants;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.block.Block;
-
-import java.util.function.BiConsumer;
 
 /**
  * Common helper for registering the vanilla block tags for adaptive ores.
@@ -19,41 +18,43 @@ public final class CommonBlockTags {
      * Add vanilla block tags for adaptive ore blocks using the provided tag adder.
      * The tagAdder receives a TagKey<Block> and an array of Block instances to add to that tag.
      */
-    public static void addVanillaTags(BiConsumer<net.minecraft.tags.TagKey<Block>, Block[]> tagAdder) {
+    public static void addVanillaTags(TagAdder<Block> tagAdder) {
         // All ores are mineable with pickaxe
-        tagAdder.accept(BlockTags.MINEABLE_WITH_PICKAXE, new Block[] {
-                AdaptiveOreBlocks.ADAPTIVE_COAL_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_IRON_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_COPPER_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_GOLD_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_REDSTONE_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_LAPIS_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_DIAMOND_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_EMERALD_ORE.value()
-        });
+        tagAdder.add(BlockTags.MINEABLE_WITH_PICKAXE,
+                AdaptiveOreConstants.ADAPTIVE_COAL_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_IRON_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_COPPER_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_GOLD_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_REDSTONE_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_LAPIS_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_DIAMOND_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_EMERALD_ORE_BLOCK
+        );
 
         // Stone-level required for: iron, copper, lapis
-        tagAdder.accept(BlockTags.NEEDS_STONE_TOOL, new Block[] {
-                AdaptiveOreBlocks.ADAPTIVE_IRON_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_COPPER_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_LAPIS_ORE.value()
-        });
+        tagAdder.add(BlockTags.NEEDS_STONE_TOOL,
+                AdaptiveOreConstants.ADAPTIVE_IRON_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_COPPER_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_LAPIS_ORE_BLOCK
+        );
 
         // Iron-level required for: gold, redstone, diamond, emerald
-        tagAdder.accept(BlockTags.NEEDS_IRON_TOOL, new Block[] {
-                AdaptiveOreBlocks.ADAPTIVE_GOLD_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_REDSTONE_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_DIAMOND_ORE.value(),
-                AdaptiveOreBlocks.ADAPTIVE_EMERALD_ORE.value()
-        });
+        tagAdder.add(BlockTags.NEEDS_IRON_TOOL,
+                AdaptiveOreConstants.ADAPTIVE_GOLD_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_REDSTONE_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_DIAMOND_ORE_BLOCK,
+                AdaptiveOreConstants.ADAPTIVE_EMERALD_ORE_BLOCK
+        );
 
-        tagAdder.accept(BlockTags.COAL_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_COAL_ORE.value() });
-        tagAdder.accept(BlockTags.IRON_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_IRON_ORE.value() });
-        tagAdder.accept(BlockTags.COPPER_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_COPPER_ORE.value() });
-        tagAdder.accept(BlockTags.GOLD_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_GOLD_ORE.value() });
-        tagAdder.accept(BlockTags.REDSTONE_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_REDSTONE_ORE.value() });
-        tagAdder.accept(BlockTags.LAPIS_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_LAPIS_ORE.value() });
-        tagAdder.accept(BlockTags.DIAMOND_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_DIAMOND_ORE.value() });
-        tagAdder.accept(BlockTags.EMERALD_ORES, new Block[] { AdaptiveOreBlocks.ADAPTIVE_EMERALD_ORE.value() });
+        tagAdder.add(BlockTags.COAL_ORES, AdaptiveOreConstants.ADAPTIVE_COAL_ORE_BLOCK);
+        tagAdder.add(BlockTags.IRON_ORES, AdaptiveOreConstants.ADAPTIVE_IRON_ORE_BLOCK);
+        tagAdder.add(BlockTags.COPPER_ORES, AdaptiveOreConstants.ADAPTIVE_COPPER_ORE_BLOCK);
+        tagAdder.add(BlockTags.GOLD_ORES, AdaptiveOreConstants.ADAPTIVE_GOLD_ORE_BLOCK);
+        tagAdder.add(BlockTags.REDSTONE_ORES, AdaptiveOreConstants.ADAPTIVE_REDSTONE_ORE_BLOCK);
+        tagAdder.add(BlockTags.LAPIS_ORES, AdaptiveOreConstants.ADAPTIVE_LAPIS_ORE_BLOCK);
+        tagAdder.add(BlockTags.DIAMOND_ORES, AdaptiveOreConstants.ADAPTIVE_DIAMOND_ORE_BLOCK);
+        tagAdder.add(BlockTags.EMERALD_ORES, AdaptiveOreConstants.ADAPTIVE_EMERALD_ORE_BLOCK);
     }
+
+
 }

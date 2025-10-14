@@ -1,6 +1,9 @@
 package grill24.adaptiveores.fabric.platform;
 
+import grill24.adaptiveores.data.AdaptiveOreSettings;
+import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
 import grill24.adaptiveores.platform.IRegistryHelper;
+import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -65,5 +68,15 @@ public class FabricRegistryHelper implements IRegistryHelper {
     @Override
     public Holder<CreativeModeTab> registerCreativeTab(String name, Supplier<CreativeModeTab> creativeModeTabSupplier) {
         return registerCreativeTab(ResourceLocation.fromNamespaceAndPath(modId, name), creativeModeTabSupplier);
+    }
+
+    @Override
+    public Registry<AdaptiveOreSettings> getAdaptiveOreSettingsRegistry() {
+        return FabricRegistryBuilder.createSimple(AdaptiveOreSettingsRegistry.REGISTRY_KEY).buildAndRegister();
+    }
+
+    @Override
+    public void registerAdaptiveOreSettingsRegistry() {
+        // Already registered in getAdaptiveOreSettingsRegistry
     }
 }

@@ -11,7 +11,6 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.MapColor;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 public class AdaptiveOreBlocks {
     // Base properties for adaptive ore blocks

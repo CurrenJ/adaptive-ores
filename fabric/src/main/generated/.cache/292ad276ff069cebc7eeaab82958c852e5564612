@@ -1,0 +1,9 @@
+// 1.21.1	2025-10-14T02:47:41.614924	Adaptive Ores/Loot Tables
+a9ceb0cc23e0210d66d414057d3883579f47a501 data/adaptiveores/loot_table/blocks/adaptive_iron_ore.json
+2e1e8d0ae8fdadc61065ee32530a9869515d0434 data/adaptiveores/loot_table/blocks/adaptive_lapis_ore.json
+52db0caf6736ad8cd44aca4803828c7f4b336bb1 data/adaptiveores/loot_table/blocks/adaptive_redstone_ore.json
+a50aaf41c3563d50e2269589347594f5d588009a data/adaptiveores/loot_table/blocks/adaptive_emerald_ore.json
+5b653b2192d5cf98f74d1857336f1b4bf2805fa0 data/adaptiveores/loot_table/blocks/adaptive_copper_ore.json
+3b79b40f9877ca7f25ba4f6a21cfd6e915b36793 data/adaptiveores/loot_table/blocks/adaptive_diamond_ore.json
+e0b216f7d4fc5dd38ce05f5d28cc1e2a42dec198 data/adaptiveores/loot_table/blocks/adaptive_gold_ore.json
+990c4d98bcd20c4e81a73fe9e47a9631152e4d52 data/adaptiveores/loot_table/blocks/adaptive_coal_ore.json

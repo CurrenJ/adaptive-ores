@@ -1,0 +1,9 @@
+{
+  "default_backdrop": {
+    "Name": "minecraft:stone"
+  },
+  "ore_block": {
+    "Name": "minecraft:copper_ore"
+  },
+  "placement_modifiers": []
+}

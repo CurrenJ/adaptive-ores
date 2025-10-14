@@ -3,7 +3,6 @@ package grill24.adaptiveores.neoforge.data;
 import grill24.adaptiveores.AdaptiveOres;
 import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
 import grill24.adaptiveores.foundation.OreType;
-import grill24.adaptiveores.neoforge.AdaptiveOresNeoForge;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.model.ModelLocationUtils;
 import net.minecraft.world.level.block.Block;
@@ -17,14 +16,8 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
  */
 public class ModAdaptiveOreModelProvider extends BlockStateProvider {
 
-    public ModAdaptiveOreModelProvider(PackOutput output) {
-        super(output, AdaptiveOres.MOD_ID, new ExistingFileHelper(
-            java.util.Collections.emptyList(),
-            java.util.Collections.emptySet(),
-            false,
-            null,
-            null
-        ));
+    public ModAdaptiveOreModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+        super(output, AdaptiveOres.MOD_ID, existingFileHelper);
     }
 
     @Override
@@ -55,7 +48,7 @@ public class ModAdaptiveOreModelProvider extends BlockStateProvider {
             .end();
 
         // Create a simple blockstate that references the model
-        simpleBlock(block, model);
+        simpleBlock(block, model); // Blockstate gen moved to common
 
         // Create the item model (same as block model)
         simpleBlockItem(block, model);

@@ -1,7 +1,10 @@
 package grill24.adaptiveores.neoforge.platform;
 
+import grill24.adaptiveores.data.AdaptiveOreSettings;
+import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
 import grill24.adaptiveores.platform.IRegistryHelper;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
@@ -70,5 +73,15 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     @Override
     public Holder<CreativeModeTab> registerCreativeTab(String name, Supplier<CreativeModeTab> creativeModeTabSupplier) {
         return creativeTabRegister.register(name, creativeModeTabSupplier);
+    }
+
+    @Override
+    public Registry<AdaptiveOreSettings> getAdaptiveOreSettingsRegistry() {
+        return AdaptiveOreSettingsRegistry.REGISTRY;
+    }
+
+    @Override
+    public void registerAdaptiveOreSettingsRegistry() {
+        // Already registered in getAdaptiveOreSettingsRegistry
     }
 }

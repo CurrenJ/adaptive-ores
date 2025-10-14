@@ -1,8 +1,10 @@
 package grill24.adaptiveores.neoforge;
 
 import grill24.adaptiveores.AdaptiveOres;
-import grill24.adaptiveores.RegistryHelper;
+import grill24.adaptiveores.SidedRegistryHelper;
+import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
 import grill24.adaptiveores.foundation.blockentity.IAdaptiveOreBlockEntity;
+import net.neoforged.neoforge.registries.RegistryBuilder;
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
 import net.minecraft.network.chat.Component;
@@ -22,6 +24,7 @@ import net.minecraft.core.BlockPos;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import grill24.adaptiveores.neoforge.platform.NeoForgeRegistryHelper;
 import grill24.adaptiveores.platform.IRegistryHelper;
+import net.neoforged.neoforge.registries.NewRegistryEvent;
 
 @Mod(AdaptiveOres.MOD_ID)
 public class AdaptiveOresNeoForge {
@@ -34,6 +37,7 @@ public class AdaptiveOresNeoForge {
     public AdaptiveOresNeoForge(IEventBus modEventBus, ModContainer modContainer) {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        modEventBus.addListener(NewRegistryEvent.class, this::onNewRegistry);
 
         // Register ourselves for server and other game events
         NeoForge.EVENT_BUS.register(this);
@@ -42,7 +46,7 @@ public class AdaptiveOresNeoForge {
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
 
         // Set up registry helper
-        IRegistryHelper helper = RegistryHelper.create();
+        IRegistryHelper helper = SidedRegistryHelper.create();
         if (helper instanceof NeoForgeRegistryHelper nfHelper) {
             nfHelper.registerToEventBus(modEventBus);
         }
@@ -100,5 +104,9 @@ public class AdaptiveOresNeoForge {
         } catch (Exception ex) {
             LOGGER.warn("Failed to register adaptiveores debug command", ex);
         }
+    }
+
+    public void onNewRegistry(NewRegistryEvent event) {
+        AdaptiveOreSettingsRegistry.REGISTRY = event.create(new RegistryBuilder<>(AdaptiveOreSettingsRegistry.REGISTRY_KEY));
     }
 }

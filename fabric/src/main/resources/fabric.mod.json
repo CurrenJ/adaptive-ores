@@ -20,6 +20,9 @@
     ],
     "client": [
       "grill24.adaptiveores.fabric.client.AdaptiveOresFabricClient"
+    ],
+    "fabric-datagen": [
+      "grill24.adaptiveores.fabric.AdaptiveOresFabricDataGenerator"
     ]
   },
   "mixins": [

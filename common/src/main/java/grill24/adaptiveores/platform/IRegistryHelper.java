@@ -1,7 +1,8 @@
 package grill24.adaptiveores.platform;
 
+import grill24.adaptiveores.data.AdaptiveOreSettings;
 import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -19,4 +20,6 @@ public interface IRegistryHelper {
     Holder<BlockEntityType<?>> registerBlockEntity(String name, Supplier<BlockEntityType<?>> blockEntitySupplier);
     Holder<CreativeModeTab> registerCreativeTab(ResourceLocation name, Supplier<CreativeModeTab> creativeModeTabSupplier);
     Holder<CreativeModeTab> registerCreativeTab(String name, Supplier<CreativeModeTab> creativeModeTabSupplier);
+    Registry<AdaptiveOreSettings> getAdaptiveOreSettingsRegistry();
+    void registerAdaptiveOreSettingsRegistry();
 }

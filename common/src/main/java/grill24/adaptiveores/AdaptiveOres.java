@@ -1,6 +1,7 @@
 package grill24.adaptiveores;
 
 import com.mojang.logging.LogUtils;
+import grill24.adaptiveores.data.AdaptiveOreSettingsRegistry;
 import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
 import grill24.adaptiveores.foundation.AdaptiveOreBlockEntities;
 import grill24.adaptiveores.platform.IRegistryHelper;
@@ -34,6 +35,7 @@ public class AdaptiveOres {
         // Register blocks, items, and block entities
         AdaptiveOreBlocks.init(REGISTRY_HELPER);
         AdaptiveOreBlockEntities.init(REGISTRY_HELPER);
+        AdaptiveOreSettingsRegistry.init();
         ADAPTIVE_ORES_TAB = REGISTRY_HELPER.registerCreativeTab(ResourceLocation.fromNamespaceAndPath(MOD_ID, "adaptive_ores_tab"), () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
             .title(Component.translatable("itemGroup.adaptiveores.adaptive_ores"))
             .icon(() -> new ItemStack(AdaptiveOreBlocks.ADAPTIVE_IRON_ORE.value()))
