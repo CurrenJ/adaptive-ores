@@ -42,9 +42,6 @@ public class AdaptiveOresNeoForge {
         // Register ourselves for server and other game events
         NeoForge.EVENT_BUS.register(this);
 
-        // Register our mod's ModConfigSpec so that FML can create and load the config file for us
-        modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
-
         // Set up registry helper
         IRegistryHelper helper = SidedRegistryHelper.create();
         if (helper instanceof NeoForgeRegistryHelper nfHelper) {
