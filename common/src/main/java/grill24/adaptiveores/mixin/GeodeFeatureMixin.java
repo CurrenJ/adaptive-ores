@@ -1,6 +1,7 @@
 package grill24.adaptiveores.mixin;
 
 import com.mojang.serialization.Codec;
+import grill24.adaptiveores.AdaptiveOres;
 import grill24.adaptiveores.foundation.AdaptiveOreBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.WorldGenLevel;
@@ -30,6 +31,12 @@ public abstract class GeodeFeatureMixin extends Feature<GeodeConfiguration> {
     @Unique
     private boolean adaptiveores$hasOres;
 
+    @Unique
+    private BlockState adaptiveores$fixedOre;
+
+    @Unique
+    private int chance = 10;
+
     public GeodeFeatureMixin(Codec<GeodeConfiguration> codec) {
         super(codec);
     }
@@ -54,13 +61,22 @@ public abstract class GeodeFeatureMixin extends Feature<GeodeConfiguration> {
     @Inject(method = "place", at = @At("HEAD"))
     private void setHasOres(FeaturePlaceContext<GeodeConfiguration> context, CallbackInfoReturnable<Boolean> cir) {
         adaptiveores$hasOres = context.level().getRandom().nextBoolean();
+        if (adaptiveores$hasOres && context.level().getRandom().nextFloat() < 0.1f) {
+            adaptiveores$fixedOre = adaptiveores$getSpawnable().getState(context.level().getRandom(), BlockPos.ZERO);
+            chance = context.level().getRandom().nextInt(5, 12);
+
+            AdaptiveOres.LOGGER.info("Geode spawned with fixed ore: " + context.origin());
+        } else {
+            chance = context.level().getRandom().nextInt(5, 30);
+            adaptiveores$fixedOre = null;
+        }
     }
 
     @Redirect(method = "place", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/feature/GeodeFeature;safeSetBlock(Lnet/minecraft/world/level/WorldGenLevel;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;Ljava/util/function/Predicate;)V"))
     private void place(GeodeFeature instance, WorldGenLevel worldGenLevel, BlockPos pos, BlockState blockState, Predicate<BlockState> predicate) {
         if (adaptiveores$hasOres && blockState.is(Blocks.AMETHYST_BLOCK)) {
-            if (worldGenLevel.getRandom().nextInt(5) == 0) {
-                BlockState oreState = adaptiveores$getSpawnable().getState(worldGenLevel.getRandom(), BlockPos.ZERO);
+            if (worldGenLevel.getRandom().nextInt(chance) == 0) {
+                BlockState oreState = adaptiveores$fixedOre != null ? adaptiveores$fixedOre : adaptiveores$getSpawnable().getState(worldGenLevel.getRandom(), BlockPos.ZERO);
                 super.safeSetBlock(worldGenLevel, pos, oreState, predicate);
                 // Set backdrop to amethyst block
                 BlockEntity be = worldGenLevel.getBlockEntity(pos);

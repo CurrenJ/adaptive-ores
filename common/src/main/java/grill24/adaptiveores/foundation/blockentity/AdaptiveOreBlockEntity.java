@@ -63,15 +63,13 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
             return; // Only sample on server side
         }
 
-        AdaptiveOres.LOGGER.info("AdaptiveOreBlockEntity.sampleAndSetBackdropMaterial: sampling backdrop for adaptive ore at {}", getBlockPos());
-
         BlockPos pos = getBlockPos();
-        BlockState detected = detectDominantBackdrop(level, pos);
+        BlockState detected = detectDominantBackdrop(level, pos, true);
         setBackdropMaterial(detected);
         backdropSampled = true;
     }
 
-    public static BlockState detectDominantBackdrop(BlockGetter level, BlockPos origin) {
+    public static BlockState detectDominantBackdrop(BlockGetter level, BlockPos origin, boolean updateBlockEntity) {
         Map<BlockState, Integer> counts = new HashMap<>();
         MutableBlockPos sample = new MutableBlockPos();
 
@@ -79,10 +77,12 @@ public class AdaptiveOreBlockEntity extends BlockEntity implements IAdaptiveOreB
         {
             sample.setWithOffset(origin, direction);
             BlockState s = level.getBlockState(sample);
+            if (updateBlockEntity) {
             Optional<AdaptiveOreBlockEntity> adaptiveOreBlockEntity = (Optional<AdaptiveOreBlockEntity>) level.getBlockEntity(sample, AdaptiveOreBlockEntities.ADAPTIVE_ORE_BLOCK_ENTITY.value());
             if (adaptiveOreBlockEntity.isPresent())
             {
                 s = adaptiveOreBlockEntity.get().getBackdropMaterial();
+            }
             }
             // Simple check: only count non-air stone-like blocks
             if (!s.isAir() && AdaptiveOreBlock.isValidBackdropBlock(s)) {

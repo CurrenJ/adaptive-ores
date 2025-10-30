@@ -60,7 +60,6 @@ public class AdaptiveOreBlock extends Block implements EntityBlock {
         super.onPlace(state, level, pos, oldState, isMoving);
         if (level != null && !level.isClientSide()) {
             AdaptiveOres.LOGGER.info("AdaptiveOreBlock.onPlace: placed adaptive ore {} at {} (old={})", this, pos, oldState.getBlock());
-            AdaptiveOres.LOGGER.info("CURREN");
         }
 
         // Schedule backdrop initialization to happen after placement
@@ -72,11 +71,8 @@ public class AdaptiveOreBlock extends Block implements EntityBlock {
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         // Detect a dominant backdrop and apply it
-        System.out.println("AdaptiveOreBlock.tick: sampling backdrop for adaptive ore " + this + " at " + pos);
-        AdaptiveOres.LOGGER.info("AdaptiveOreBlock.tick: sampling backdrop for adaptive ore {} at {}", this, pos);
         BlockEntity be = level.getBlockEntity(pos);
         if (be instanceof AdaptiveOreBlockEntity adaptive) {
-            AdaptiveOres.LOGGER.info("AdaptiveOreBlock.tick: found block entity, sampling backdrop");
             adaptive.sampleAndSetBackdropMaterial();
         }
     }

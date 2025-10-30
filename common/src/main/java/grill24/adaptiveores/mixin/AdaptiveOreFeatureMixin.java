@@ -75,7 +75,7 @@ public abstract class AdaptiveOreFeatureMixin extends Feature<OreConfiguration> 
         // vanilla ore variant instead of replacing it with our adaptive ore (identical visuals,
         // unnecessary overhead).
         if (adaptiveOreBlock != null && adaptiveFromPlacing && replacing != null) {
-            BlockState detectedBackdrop = AdaptiveOreBlockEntity.detectDominantBackdrop(level, blockpos$mutableblockpos);
+            BlockState detectedBackdrop = AdaptiveOreBlockEntity.detectDominantBackdrop(level, blockpos$mutableblockpos, false);
             if (detectedBackdrop.is(Blocks.STONE) || detectedBackdrop.is(Blocks.DEEPSLATE)) {
                 return; // Keep the vanilla ore instead
             }
