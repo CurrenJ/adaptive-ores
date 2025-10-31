@@ -2,10 +2,8 @@
   "required": true,
   "package": "grill24.adaptiveores.mixin",
   "compatibilityLevel": "JAVA_21",
+  "refmap": "adaptiveores-refmap.json",
   "minVersion": "0.8",
-  "refmap": "adaptiveores.refmap.json",
-  "client": [
-  ],
   "mixins": [
     "AdaptiveOreFeatureMixin",
     "MonsterRoomFeatureMixin",
@@ -14,6 +12,8 @@
   ],
   "injectors": {
     "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
   }
 }
-

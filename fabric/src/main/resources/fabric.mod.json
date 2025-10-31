@@ -26,7 +26,7 @@
     ]
   },
   "mixins": [
-    "adaptiveores.mixins.json"
+    "adaptiveores-fabric.mixins.json"
   ],
   "accessWidener": "adaptiveores.accesswidener",
   "depends": {
